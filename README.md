@@ -1,3 +1,5 @@
+![shellGif](https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif)
+
 # **C - Simple Shell** :shell:
 
 ## **DESCRIPTION** :book:
