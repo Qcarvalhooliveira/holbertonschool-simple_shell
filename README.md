@@ -1,6 +1,7 @@
 <div style="width: 80px; height: 80px;">
-![shellGif](https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif)
+  <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="width: 100%; height: 100%;">
 </div>
+
 
 # **C - Simple Shell** :shell:
 
