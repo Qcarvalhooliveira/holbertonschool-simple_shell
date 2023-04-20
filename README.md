@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div style="justify-content: center;">
   <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="width: 50%; height: 50%;">
 </div>
 
