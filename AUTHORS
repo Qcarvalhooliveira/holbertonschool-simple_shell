@@ -1,1 +1,4 @@
-git log --format="%aN" | sort | unic -c | sort -rn | awk '$1>=$THRESHOLD {$1=""; print $0}' | cut -d" " -f2- > AUTHORS
+#This file lists all individuals having contributed content to the repository.
+
+Queise Carvalho de Oliveira <6204@holbertonstudents.com>
+Sabrina Papeau <6188@holbertonstudents.com>
