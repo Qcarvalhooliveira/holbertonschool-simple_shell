@@ -1,10 +1,10 @@
-# **C - Simple Shell**:shell:
+# **C - Simple Shell** :shell:
 
-## **DESCRIPTION**:book:
+## **DESCRIPTION** :book:
 
 Shell scripts allow us to program commands in chains and have the system execute them as a scripted event, just like batch files. They also allow for far more useful functions, such as command substitution. You can invoke a command, like date, and use it’s output as part of a file-naming scheme. You can automate backups and each copied file can have the current date appended to the end of its name. Scripts aren’t just invocations of commands, either. They’re programs in their own right. Scripting allows you to use programming functions — such as ‘for’ loops, if/then/else statements, and so forth — directly within your operating system’s interface.
 ![This is an image](https://s3.eu-west-3.amazonaws.com/hbtn.intranet.project.files/holbertonschool-low_level_programming/235/shell.jpeg)
-# **List of allowed functions and system calls**:+1:
+# **List of allowed functions and system calls** :+1:
 
 * ```access``` (man 2 access)
 * ```chdir``` (man 2 chdir)
@@ -43,13 +43,13 @@ Shell scripts allow us to program commands in chains and have the system execute
 * ```wait4``` (man 2 wait4)
 * ```write``` (man 2 write)
 
-# **Compilation**:memo:
+# **Compilation** :memo:
 
 * Our shell will be compiled this way:
 
 ```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh						      ```
 
-# **Testing**:warning:
+# **Testing** :warning:
 
 * Our shell should work like this in interactive mode:
 
@@ -78,7 +78,7 @@ hsh main.c shell.c test_ls_2
 $
 ```
 
-# **Output**:clipboard:
+# **Output** :clipboard:
 
 * Unless specified otherwise, our program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
 * The only difference is when you print an error, the name of the program must be equivalent to your argv[0] (See below)
@@ -103,7 +103,7 @@ $ echo "qwerty" | ./././hsh
 $
 ```
 
-# **Tasks**:books:
+# **Tasks** :books:
 
 ### **0. README, man, AUTHORS**
 
@@ -146,7 +146,7 @@ Simple shell 0.4 +
 
 * Implement the env built-in, that prints the current environment.
 
-## **Authors**:black_nib:
+## **Authors** :black_nib:
 
 * **Queise Carvalho de Oliveira** - [Queise Oliveira](https://github.com/Qcarvalhooliveira)
 * **Sabrina Papeau** - [Sabrina Papeau](https://github.com/SabyParis)
