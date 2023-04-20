@@ -1,5 +1,5 @@
-<div style="width: 80px; height: 80px;">
-  <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="width: 100%; height: 100%;">
+<div >
+  <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="width: 30%; height: 30%;">
 </div>
 
 
