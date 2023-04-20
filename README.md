@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="display: block; margin: 0 auto;">
+  <img src="https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif" alt="shellGif" style="display: block; margin: 0 auto; width: 50%; height: 50%">
 </p>
 
 
