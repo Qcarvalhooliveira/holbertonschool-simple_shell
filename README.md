@@ -1,5 +1,6 @@
+<div style="width: 80px; height: 80px;">
 ![shellGif](https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell/blob/master/Shell.gif)
-
+</div>
 # **C - Simple Shell** :shell:
 
 ## **DESCRIPTION** :book:
