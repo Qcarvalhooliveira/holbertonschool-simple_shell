@@ -1,0 +1,43 @@
+April 28th, 2023  Simple shell  team project
+
+NAME
+Hsh –simple shell program: command line interpreter
+
+SYNOPSIS
+hsh –[option] [command]
+$ ./hsh  (In interactive mode)
+echo "/bin/ls" | ./hsh  (in non-interactive mode)
+
+DESCRIPTION
+Simple shell reproduces a command line interpreter designed to interact with unix systems.
+It permits to run the shell in interactive and non-interactive mode.
+This program is compatible with common shell commands.
+When run with no arguments, hsh will start an interactive shell prompt, allowing users to enter commands one at a time. 
+If a command is given as an argument, hsh will execute that command and exit.
+
+COMPILATION
+The shell  is compiled on Ubuntu 20.04 LTS with GNU compiler collection :
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+OPTIONS
+-v, --version
+Display version information and exit.
+
+-n, --no-prompt
+Do not display the shell prompt when running in interactive mode.
+
+EXAMPLES
+To execute a single command, run
+./hsh -c "ls -l"
+To execute a shell script, run:
+./hsh script.sh
+To run hsh in non-interactive mode, pipe input from a file:
+cat commands.txt | ./hsh
+
+BUGS
+None kwown
+
+AUTHORS
+Queise Carvalho de Oliveira 
+Sabrina Papeau  
+
