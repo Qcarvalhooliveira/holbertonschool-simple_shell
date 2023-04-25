@@ -1,33 +1,44 @@
 #include "shell.h"
 
 /**
- * trim - Function that remove whitespaces from start abd end strings
+ * trim - Function that remove whitespaces from start and end of strings
  * @str: trim string
  * Return: str
+ *
  */
-
 char *trim(char *str)
-
 {
-    char *start = str;
-    char *end = str + strlen(str) - 1;
+    char *front = str;
+    char *end = NULL;
+    int len = 0;
 
-    
-    while (isspace(*start))
+    if (str == NULL)
+        return (NULL);
+    if (str[0] == '\0')
+        return (str);
+
+    len = strlen(str);
+    end = str + len;
+
+    while (*front == ' ')
+        front++;
+
+    if (end != front)
     {
-        start++;
+        while (*end == ' ' && end != front)
+            end--;
+    }
+    if (front != str && end == front)
+        *str = '\0';
+    else if (str + len - 1 != end)
+        *(end + 1) = '\0';
+    end = str;
+    if (front != str)
+    {
+        while (*front)
+            *end++ = *front++;
+        *end = '\0';
     }
 
-    
-    while (end > start && isspace(*end)) 
-    {
-        end--;
-    }
-
-    
-    *(end+1) = '\0';
-
-        memmove(str, start, end - start + 2);
-
-    return str;
+    return (str);
 }
