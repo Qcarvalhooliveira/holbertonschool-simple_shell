@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <dirent.h>
+#include <fcnt1.h>
+#include <signal.h>
 
 extern char **environ;
 
