@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+  * split_env - Permits to tokenize path
+  * @path: The path toward tokenize
+  *
+  * Return: Array containing tokens
+  */
+
 
 char **split_env(char *path)
 
@@ -17,21 +24,6 @@ char **split_env(char *path)
 }
     tokens[i] = NULL;
 
-    return tokens;
+    return (tokens);
 }
 
-int main() 
-{
-    char *path = "/home/user/documents/file.txt";
-    char **tokens = split_env(path);
-
-    int i = 0;
-    while (tokens[i] != NULL) {
-        printf("%s\n", tokens[i]);
-        i++;
-}
-
-    free(tokens);
-    
-    return 0;
-}
