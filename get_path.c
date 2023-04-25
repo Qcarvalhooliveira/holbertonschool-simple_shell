@@ -1,12 +1,17 @@
-#include "shell.c"
+#include "shell.h"
 
+/**
+  * get_path - To get command's path
+  * @getcmd: Used to find the path of the command
+  *
+  * Return: command's path
+  */
 
 char *get_path(char *getcmd) 
 {
     
     char *path = malloc(256*sizeof(char));
-    
-    
+        
     FILE *maps_file = fopen("/proc/self/maps", "r");
     if (maps_file == NULL) 
 {
