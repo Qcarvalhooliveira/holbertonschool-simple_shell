@@ -11,10 +11,10 @@
 #include <sys/wait.h>
 #include <dirent.h>
 
+#define BUFSIZE 1024
 #define MAX_LINE_LENGTH 1024
 
-void print_prompt(void);
-char main(void);
+int main(void);
 char *_strcat(char *dest, const char *source);
 int _strcmp(char *first, char *second);
 int _strlen(char *string);
@@ -23,5 +23,11 @@ void free_grid(char **grid);
 int func_exec(char **args);
 void _printenv(void);
 char *read_func(void);
+void free_grid(char **grid);
+char *get_path(char *getcmd);
+int handle_ctrl_d(char *buf);
+char **func_split(char *line);
+char **split_env(char *path);
+char *trim(char *str);
 
 #endif
