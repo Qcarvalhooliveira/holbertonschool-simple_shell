@@ -9,7 +9,7 @@
 
 char *get_path(char *getcmd) 
 {
-    
+    char line[256];
     char *path = malloc(256*sizeof(char));
         
     FILE *maps_file = fopen("/proc/self/maps", "r");
@@ -19,8 +19,7 @@ char *get_path(char *getcmd)
         exit(1);
 }
     
-    char line[256];
-    
+        
     while (fgets(line, 256, maps_file) != NULL) 
 
 {
@@ -41,5 +40,6 @@ char *get_path(char *getcmd)
 
     fclose(maps_file);
     
+    free(path); 
     return path;
 }
