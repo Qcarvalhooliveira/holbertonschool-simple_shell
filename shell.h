@@ -11,6 +11,8 @@
 #include <sys/wait.h>
 #include <dirent.h>
 
+extern char **environ;
+
 #define BUFSIZE 1024
 #define MAX_LINE_LENGTH 1024
 
