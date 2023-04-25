@@ -1,19 +1,16 @@
 #include "shell.h"
 
 /**
- * main - 
- *
- *
- *
+ * main - Function that start the shell.
+ * 
+ * Return: 1.
  */
-
-#define MAX_LINE_LENGTH 1024
 
 int main(void)
 {
 	char line[MAX_LINE_LENGTH];
 	char *args[2];
-	int status;
+	int status, pid;
 
 	while (1)
 	{
@@ -34,7 +31,7 @@ int main(void)
 	args[0] = strtok(line, " ");
 	args[1] = NULL;
 
-	pid_t pid = fork();
+	pid = fork();
 
 	if (pid < 0)
 	{
