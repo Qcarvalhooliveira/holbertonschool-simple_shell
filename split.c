@@ -14,7 +14,6 @@ char **func_split(char *line);
 	int i = 0;
 
 	while (token != NULL)
-
 	{
 	tokens[i] = token;
 	i++;
