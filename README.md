@@ -49,6 +49,16 @@ Shell scripts allow us to program commands in chains and have the system execute
 * ```wait4``` (man 2 wait4)
 * ```write``` (man 2 write)
 
+# **Project Files**
+
+|     Files    |    Description                                     |
+|--------------|----------------------------------------------------|
+|free_grid     |frees the memory allocated for a 2D array of strings|
+|func_exec     |function that executes the commands                 |
+|get_path      |To get command's path                               |
+
+
+
 # **Compilation** :memo:
 
 * Our shell will be compiled this way:
