@@ -1,25 +1,78 @@
-#include "shell.h"
+/**
+ * _realloc - reallocate memory
+ * @ptr: void variable pointer
+ * @old_size: integer
+ * @new_size: integer
+ * Return: Null
+ */
+
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+
+	char *new;
+	unsigned int i;
+
+	if (ptr == NULL)
+	{
+		new = malloc(new_size);
+		return (new);
+	}
+
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
+	if (new_size == old_size)
+		return (ptr);
+
+	new = malloc(new_size);
+
+	if (new == NULL)
+		return (NULL);
+
+	for (i = 0; i < old_size; i++)
+	{
+		new[i] = ((char *)ptr)[i];
+	}
+
+	free(ptr);
+
+	return (new);
+}
 
 /**
-  * _func_split- Function to make tokens (what is reading)
-  * @line: the line to be tokenize
-  *
-  * Return: tokens's array
-  */
-char **func_split(char *line)
+ * splits - function that create tokens
+ * @line: is a char
+ * @delim: is a char
+ * Return: double pointer
+ */
+
+char **splits(char *line, char *delim)
 {
-	char **tokens = malloc(sizeof(char *));
-	char *token = strtok(line, " ");
-	int i = 0;
+	char **pptoken;
+	int buf = 1024, i = 0;
 
-	while (token != NULL)
-	{
-	tokens[i] = token;
+	pptoken = malloc(sizeof(char *) * buf);
+	if (!pptoken)
+		exit(99);
+
+	pptoken[i] = strtok(line, delim);
 	i++;
-	tokens = realloc(tokens, (i + 1) * sizeof(char *));
-	token = strtok(NULL, " ");
+	while (1)
+	{
+		pptoken[i] = strtok(NULL, delim);
+		if (i >= buf)
+		{
+			buf += buf;
+			pptoken = _realloc(pptoken, buf, buf * (sizeof(char *)));
+			if (!pptoken)
+				exit(98);
+		}
+		if (pptoken[i] == NULL)
+			break;
+		i++;
 	}
-	tokens[i] = NULL;
-
-	return (tokens);
+	return (pptoken);
 }
