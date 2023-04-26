@@ -17,7 +17,7 @@ extern char **environ;
 #define BUFSIZE 1024
 #define MAX_LINE_LENGTH 1024
 
-int main(void);
+int main(int argc, char **argv, char **environ);
 char *_strcat(char *dest, const char *source);
 int _strcmp(char *first, char *second);
 int _strlen(char *string);

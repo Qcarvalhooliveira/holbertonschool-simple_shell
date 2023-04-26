@@ -2,48 +2,34 @@
 
 /**
  * func_exec - function that executes the commands.
- * @args: list of commands.
+ * @parse: is a char array of pointers.
  *
- * Return: If sucess return 1.
+ * Return: If sucess return 0.
  */
 
-int func_exec(char **args)
+int func_exec(char **parse)
 {
 	pid_t pid;
 	int status;
-	char *getcmd;
 
 	pid = fork();
-	if (pid == -1)
-	{
-	perror("Error: fork");
-	return (0);
-	}
-
 	if (pid == 0)
 	{
-	if (args[0][0] == '/' || args[0][0] == '.')
-
-	getcmd = args[0];
-	else
-	getcmd = get_path(args[0]);
-
-	if (getcmd == NULL)
+	if (execve(parse[0], parse, NULL) == -1)
 	{
-	perror("Error: command not found");
-	exit(0);
-	}
 
-	if (execve(getcmd, args, environ) == -1)
-	{
-	perror("Error: execve");
-	free(getcmd);
-	exit(EXIT_FAILURE);
+	perror(parse[0]);
+
+	exit(1);
+
 	}
+	}
+	else if (pid > 0)
+	{
+	wait(&status);
 	}
 	else
-	{
-	waitpid(pid, &status, 0);
-	}
-	return (1);
+	perror("Error:");
+
+	return (0);
 }
