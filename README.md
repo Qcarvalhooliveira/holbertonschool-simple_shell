@@ -17,53 +17,77 @@ Shell scripts allow us to program commands in chains and have the system execute
 * ```close``` (man 2 close)
 * ```closedir``` (man 3 closedir)
 * ```execve``` (man 2 execve)
-* ```exit``` (man 3 exit)
+* ```exit``` (man 3 exit) :dart:
 * ```_exit``` (man 2 _exit)
-* ```fflush``` (man 3 fflush)
+* ```fflush``` (man 3 fflush) :dart:
 * ```fork``` (man 2 fork)
-* ```free``` (man 3 free)
+* ```free``` (man 3 free) :dart:
 * ```getcwd``` (man 3 getcwd)
-* ```getline``` (man 3 getline)
+* ```getline``` (man 3 getline) :dart:
 * ```getpid``` (man 2 getpid)
 * ```isatty``` (man 3 isatty)
 * ```kill``` (man 2 kill)
-* ```malloc``` (man 3 malloc)
+* ```malloc``` (man 3 malloc) :dart:
 * ```open``` (man 2 open)
 * ```opendir``` (man 3 opendir)
-* ```perror``` (man 3 perror)
-* ```printf``` (man 3 printf)
-* ```fprintf``` (man 3 fprintf)
+* ```perror``` (man 3 perror) :dart:
+* ```printf``` (man 3 printf) :dart:
+* ```fprintf``` (man 3 fprintf) :dart:
 * ```vfprintf``` (man 3 vfprintf)
 * ```sprintf``` (man 3 sprintf)
 * ```putchar``` (man 3 putchar)
-* ```read``` (man 2 read)
+* ```read``` (man 2 read) :dart:
 * ```readdir``` (man 3 readdir)
 * ```signal``` (man 2 signal)
 * ```stat``` (__xstat) (man 2 stat)
 * ```lstat``` (__lxstat) (man 2 lstat)
 * ```fstat``` (__fxstat) (man 2 fstat)
-* ```strtok``` (man 3 strtok)
+* ```strtok``` (man 3 strtok) :dart:
 * ```wait``` (man 2 wait)
-* ```waitpid``` (man 2 waitpid)
+* ```waitpid``` (man 2 waitpid) :dart:
 * ```wait3``` (man 2 wait3)
 * ```wait4``` (man 2 wait4)
-* ```write``` (man 2 write)
+* ```write``` (man 2 write) :dart:
 
 # **Project Files**
 
-|     Files    |    Description                                     |
-|--------------|----------------------------------------------------|
-|free_grid     |frees the memory allocated for a 2D array of strings|
-|func_exec     |function that executes the commands                 |
-|get_path      |To get command's path                               |
+|     Files                      |    Description                                                                      |
+|--------------------------------|-------------------------------------------------------------------------------------|
+|free_grid                       |frees the memory allocated for a 2D array of strings                                 |
+|func_exec                       |function that executes the commands                                                  |
+|get_path                        |To get command's path                                                                ||handle_ctrl_d                   |Handles ctrl + d                                                                     ||main                            |Function that start the shell                                                        ||_printenv                       |Function that prints the environment variables                                       ||read_func                       |reads input from stdin                                                               ||shell                           |Header                                                                               ||_func_split                     |Function to make tokens (what is reading)                                            ||split_env                       |Permits to tokenize path                                                             ||_strcat                         |Function that concatenante two strings                                               ||_strcmp                         |The function compares two strings                                                    ||_strlen                         |Function to find the size of the string                                              ||trim                            |Function that remove whitespaces from start and end of strings                       |
+|_strncmp                        |Function to compare the number of strings's characters                               |
 
 
+# **USAGE** :memo:
 
-# **Compilation** :memo:
+* Our shell will work following these steps:
 
-* Our shell will be compiled this way:
+> Step 1: Clone our repository using this command, (you need to have git installed on your machine first):
+```
+https://github.com/Qcarvalhooliveira/holbertonschool-simple_shell.git
+```
+> Step 2: Change directory to simple_shell:
+```
+cd holbertonschool-simple_shell
+```
+> Step 3: Compile the C files in this way:
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh	
+```
+> Step 4: Run the shell:
+```
+./hsh
+```
+Exiting the shell When you want to exit the shell, you can use one of the following methods:
 
-```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh						      ```
+
+> 1: Type the command "exit"
+```
+exit
+```
+> 2: Press on Ctrl + D
+
 
 # **Testing** :warning:
 
