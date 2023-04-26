@@ -1,5 +1,7 @@
 #include "shell.h"
 
+#define BUFSIZE 1024
+
 /**
  * handle_ctrl_d - Handles ctrl + d
  * @buf: buffer to read input from
