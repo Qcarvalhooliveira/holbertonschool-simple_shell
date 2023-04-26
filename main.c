@@ -16,6 +16,7 @@ int main(void)
 		fflush(stdout);
 
 		char line[MAX_LINE_LENGTH];
+
 		if (fgets(line, MAX_LINE_LENGTH, stdin) == NULL)
 		{
 			printf("\n");
@@ -29,10 +30,12 @@ int main(void)
 		}
 
 		char *args[2];
+
 		args[0] = strtok(line, " ");
 		args[1] = NULL;
 
 		pid_t pid = fork();
+		
 		if (pid < 0)
 		{
 			perror("fork");
@@ -58,10 +61,10 @@ int main(void)
  * Return: 0
  */
 
-
 void child_process(char **args)
 {
 	struct stat st;
+
 	if (stat(args[0], &st) == -1)
 	{
 		fprintf(stderr, "%s: command not found\n", args[0]);
@@ -85,6 +88,7 @@ void child_process(char **args)
 void parent_process(pid_t pid)
 {
 	int status;
+
 	if (waitpid(pid, &status, 0) == -1)
 	{
 		perror("waitpid");
