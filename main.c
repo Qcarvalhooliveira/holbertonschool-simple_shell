@@ -7,7 +7,6 @@
  * @environ: global variable
  * Return: 0
  */
-
 int main(void)
 {
 	while (1)
@@ -16,6 +15,7 @@ int main(void)
 		fflush(stdout);
 
 		char line[MAX_LINE_LENGTH];
+
 		if (fgets(line, MAX_LINE_LENGTH, stdin) == NULL)
 		{
 			printf("\n");
@@ -29,10 +29,12 @@ int main(void)
 		}
 
 		char *args[2];
+
 		args[0] = strtok(line, " ");
 		args[1] = NULL;
 
 		pid_t pid = fork();
+
 		if (pid < 0)
 		{
 			perror("fork");
@@ -47,21 +49,19 @@ int main(void)
 			parent_process(pid);
 		}
 	}
+
 	return (0);
 }
-
 /**
- * child process - Function that start the shell.
- * @argc: is an integer
- * @argv: is a char
- * @environ: global variable
+ * child_process - Function that start the shell.
+ * @args: is an integer
+ *
  * Return: 0
  */
-
-
 void child_process(char **args)
 {
 	struct stat st;
+
 	if (stat(args[0], &st) == -1)
 	{
 		fprintf(stderr, "%s: command not found\n", args[0]);
@@ -74,17 +74,17 @@ void child_process(char **args)
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
  * parent_process - Function that start the shell.
- * @argc: is an integer
- * @argv: is a char
- * @environ: global variable
+ * @pid: Process ID
+ *
  * Return: 0
  */
-
 void parent_process(pid_t pid)
 {
 	int status;
+
 	if (waitpid(pid, &status, 0) == -1)
 	{
 		perror("waitpid");
