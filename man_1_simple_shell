@@ -12,7 +12,8 @@ DESCRIPTION
 Simple shell reproduces a command line interpreter designed to interact with unix systems.
 It permits to run the shell in interactive and non-interactive mode.
 This program is compatible with common shell commands.
-When run with no arguments, hsh will start an interactive shell prompt, allowing users to enter commands one at a time. 
+When run with no arguments,hsh will start an interactive shell prompt.
+It allowing users to enter commands one at a time.
 If a command is given as an argument, hsh will execute that command and exit.
 
 COMPILATION
@@ -38,6 +39,5 @@ BUGS
 None kwown
 
 AUTHORS
-Queise Carvalho de Oliveira 
-Sabrina Papeau  
-
+Queise Carvalho de Oliveira
+Sabrina Papeau
