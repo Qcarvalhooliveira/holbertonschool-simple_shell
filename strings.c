@@ -1,103 +1,76 @@
 #include "shell.h"
 
 /**
- * _strcat - Function that concatenante two strings
- * @dest: This is the string to be contenated to
- * @src: The source of string
- *
- * Return: destination concatened string
+ * length - function that checks the = character
+ * @str: is a char
+ * Return: str
  */
 
-char *_strcat(char *dest, const char *source)
-{
-	char *ptr = dest + strlen(dest);
-
-	while (*source != '\0')
-	{
-
-		*ptr++ = *source++;
-	}
-
-	*ptr = '\0';
-
-	return (dest);
-}
-
-/**
- * _strcmp - The function compares two strings
- * @first:  First string
- * @second: Second string
- *
- * Return: 0 if str1 == str2
- -1 if str1 < str2, and
- 1 if str1 > str2
- */
-int _strcmp(char *first, char *second)
-{
-
-	int i = 0;
-
-	while (first[i] != '\0' && second[i] != '\0' && first[i] == second[i])
-	{
-
-		i++;
-	}
-
-	if (first[i] == '\0' && second[i] == '\0')
-	{
-		return 0;
-
-	}
-	else if (first[i] < second[i])
-	{
-		return -1;
-
-	} 
-	else
-	{
-		return 1;
-	}	
-}
-
-/**
- * _strlen - Function to find the size of the string
- * @string: The string to be founded
- *  
- * Return: Size of the string
- */
-
-int _strlen(char *string)
-{
-	int i = 0;
-
-	while (string[i] != '\0')
-	{
-		++i;
-	}
-	return (i);
-}
-
-
-/**
- * _strncmp - Function to compare the number of strings's characters
- * @string1: First string
- * @String2: Second string  
- * @n: numbers of characters to compare
- *
- * Return: Difference of two strings  
- */
-
-int _strncmp(char *string1, char *string2, int n)
+char *length(char *str)
 {
 	int i;
 
-	for (i = 0; string1[i] && string2[i] && i < n; i++)
-	{
-		if (string1[i] != string2[i])
-			return (string1[i] - string2[i]);
-	}
-	if (i == n || string1[i] == string2[i])
-		return 0;
+	for (i = 0; str[i] != '='; i++)
+		;
+	return (str + i + 1);
+}
 
-	return (string1[i] - string2[i]);
+/**
+ * compare - function that compares two strings
+ * @varname: is a char
+ * @dirname: is a char
+ * Return: 1
+ */
+
+int compare(char *varname, char *dirname)
+{
+	int i;
+
+	for (i = 0; dirname[i] != '\0'; i++)
+	{
+		if (dirname[i] != varname[i])
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * free_grid - frees the memory allocated for a 2D array of strings
+ * @grid: the 2D array of strings to free
+ *
+ * Return: nothing
+ */
+
+void free_grid(char **grid)
+{
+	int i;
+
+	if (grid == NULL)
+		return;
+
+	for (i = 0; grid[i] != NULL; i++)
+		free(grid[i]);
+
+	free(grid);
+}
+
+/**
+ *_strcat - concatenate 2 strings
+ *@dest: is a character
+ *@src: is a character
+ *Return: dest concatenated strind
+ */
+
+char *_strcat(char *dest, char *src)
+{
+	int i, j;
+
+	for (i = 0; dest[i] != '\0'; i++)
+	{ }
+
+	for (j = 0; src[j] != '\0'; j++, i++)
+		dest[i] = src[j];
+
+	dest[i] = '\0';
+	return (dest);
 }
