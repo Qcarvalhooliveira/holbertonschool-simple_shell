@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * _realloc - reallocate memory
  * @ptr: void variable pointer
