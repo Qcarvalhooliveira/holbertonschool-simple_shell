@@ -15,7 +15,7 @@
 extern char **environ;
 
 int main(int argc, char **argv, char **environ);
-char *_strcat(char *dest, const char *source);
+char *_strcat(char *dest, char *src);
 void free_grid(char **grid);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
