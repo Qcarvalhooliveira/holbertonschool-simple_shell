@@ -1,33 +1,62 @@
 #include "shell.h"
 
 /**
- * _getenv - function that gets the path in the environ
- * @environ: global variable
- * @dirname: is a char
- * Return: final or null
+ *env - prints the current_environnement
+ *@tokenized_command: command entered
+ *
+ *Return: void
  */
 
-char *_getenv(char **environ, char *dirname)
+void env(char **tokenized_command __attribute__((unused)))
 {
-	int k, j;
-	char *varname, *final;
+	int i;
 
-	for (j = 0; environ[j]; j++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
-	varname = malloc(1024);
-
-	for (k = 0; environ[j][k] != '='; k++)
-	varname[k] = environ[j][k];
-
-	if (compare(varname, dirname))
-	{
-	final = length(environ[j]);
-	free(varname);
-
-	return (final);
+		print(environ[i], STDOUT_FILENO);
+		print("\n", STDOUT_FILENO);
 	}
-	free(varname);
-	}
-	return (NULL);
 }
 
+/**
+ * quit - exits the shell
+ * @tokenized_command: command entered
+ *
+ * Return: void
+ */
+
+void quit(char **tokenized_command)
+{
+	int num_token = 0, arg;
+
+	for (; tokenized_command[num_token] != NULL; num_token++)
+		;
+	if (num_token == 1)
+	{
+		free(tokenized_command);
+		free(line);
+		free(commands);
+		exit(status);
+	}
+	else if (num_token == 2)
+	{
+		arg = _atoi(tokenized_command[1]);
+		if (arg == -1)
+		{
+			print(shell_name, STDERR_FILENO);
+			print(": 1: exit: Illegal number: ", STDERR_FILENO);
+			print(tokenized_command[1], STDERR_FILENO);
+			print("\n", STDERR_FILENO);
+			status = 2;
+		}
+		else
+		{
+			free(line);
+			free(tokenized_command);
+			free(commands);
+			exit(arg);
+		}
+	}
+	else
+		print("$: exit doesn't take more than one argument\n", STDERR_FILENO);
+}
