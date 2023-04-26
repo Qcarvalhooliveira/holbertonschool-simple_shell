@@ -3,7 +3,6 @@
 /**
   * _func_split- Function to make tokens (what is reading)
   * @line: the line to be tokenize
-  * @
   *
   * Return: tokens's array
   */
