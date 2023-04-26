@@ -30,14 +30,17 @@ Do not display the shell prompt when running in interactive mode.
 EXAMPLES
 To execute a single command, run
 ./hsh -c "ls -l"
+
 To execute a shell script, run:
 ./hsh script.sh
+
 To run hsh in non-interactive mode, pipe input from a file:
 cat commands.txt | ./hsh
+
 
 BUGS
 None kwown
 
 AUTHORS
-Queise Carvalho de Oliveira
+Queise Carvalho De Oliveira
 Sabrina Papeau

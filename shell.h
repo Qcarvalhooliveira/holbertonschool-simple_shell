@@ -1,6 +1,5 @@
 #ifndef SHELL_H
 #define SHELL_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -10,8 +9,6 @@
 #include <sys/wait.h>
 #include <limits.h>
 #include <signal.h>
-
-extern char **environ;
 
 int main(int argc, char **argv, char **environ);
 char *_strcat(char *dest, char *src);
@@ -38,6 +35,9 @@ char **splits(char *line, char *delim);
 char **split_env(char *path);
 char *length(char *str);
 int compare(char *varname, char *dirname);
-
+char *read_line(void);
+void _puts(char *str);
+unsigned int _strlen(char *s);
+char *if_exists(char **environ);
+extern char **environ;
 #endif
-
