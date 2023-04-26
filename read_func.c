@@ -3,28 +3,22 @@
 /**
  * read_func - reads input from stdin.
  *
- * Return: line if successful, NULL if failed.
+ * Return: line if successful.
  */
 
 char *read_func(void)
 {
 	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
+	size_t size = 0;
+	int ret = 0;
 
-	read = getline(&line, &len, stdin);
-	if (read == -1)
+	if (getline(&line, &size, stdin) == -1)
 	{
 	free(line);
-	exit(EXIT_SUCCESS);
+	exit(-1);
 	}
-	line[read - 1] = '\0';
+	ret = strlen(line);
+	line[ret - 1] = '\0';
 
-	if (*line == '\0')
-	{
-	free(line);
-	return (NULL);
-	}
 	return (line);
 }
-
