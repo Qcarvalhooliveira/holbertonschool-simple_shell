@@ -7,7 +7,7 @@
   *
   * Return: tokens's array
   */
-char **func_split(char *line);
+char **func_split(char *line)
 {
 	char **tokens = malloc(sizeof(char *));
 	char *token = strtok(line, " ");
