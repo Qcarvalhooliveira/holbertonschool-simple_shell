@@ -37,7 +37,7 @@ char *trim(char *str)
 	{
 	while (*front)
 	*end++ = *front++;
-	*end = '\0'
+	*end = '\0';
 	}
 	return (str);
 }
