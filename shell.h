@@ -31,6 +31,7 @@ char *get_path(char *getcmd);
 int handle_ctrl_d(char *buf);
 char **func_split(char *line);
 char **split_env(char *path);
+char **func_split(char *line);
 char *trim(char *str);
 
 #endif
