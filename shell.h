@@ -41,3 +41,4 @@ char *length(char *str);
 int compare(char *varname, char *dirname);
 
 #endif
+
