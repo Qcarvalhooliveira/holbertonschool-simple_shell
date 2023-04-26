@@ -9,31 +9,35 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-#include <dirent.h>
+#include <limits.h>
 #include <signal.h>
 
 extern char **environ;
 
-#define BUFSIZE 1024
-#define MAX_LINE_LENGTH 1024
-
 int main(int argc, char **argv, char **environ);
 char *_strcat(char *dest, const char *source);
-int _strcmp(char *first, char *second);
+void free_grid(char **grid);
+char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
+int _putchar(char c);
+void _puts(char *str);
 int _strlen(char *string);
 int _strncmp(char *string1, char *string2, int n);
 void free_grid(char **grid);
-int func_exec(char **args);
+int func_exec(char **parse);
+char *_getenv(char **environ, char *dirname);
 void _printenv(void);
 char *read_func(void);
-void free_grid(char **grid);
-char *get_path(char *getcmd);
+char **find_path(char **environ);
+char *args_path(char **parse, char **new);
 int handle_ctrl_d(char *buf);
 char **func_split(char *line);
 char **split_env(char *path);
 char **func_split(char *line);
-char *trim(char *str);
-void child_process(char **args);
-void parent_process(pid_t pid);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char **splits(char *line, char *delim);
+char **split_env(char *path);
+char *length(char *str);
+int compare(char *varname, char *dirname);
 
 #endif
