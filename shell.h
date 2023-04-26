@@ -33,5 +33,7 @@ char **func_split(char *line);
 char **split_env(char *path);
 char **func_split(char *line);
 char *trim(char *str);
+void child_process(char **args);
+void parent_process(pid_t pid);
 
 #endif
