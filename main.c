@@ -7,7 +7,6 @@
  * @environ: global variable
  * Return: 0
  */
-
 int main(void)
 {
 	while (1)
@@ -35,7 +34,11 @@ int main(void)
 		args[1] = NULL;
 
 		pid_t pid = fork();
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 4ec355832f6ec7008ae1290ecb9f7d04ab23d84d
 		if (pid < 0)
 		{
 			perror("fork");
@@ -50,17 +53,19 @@ int main(void)
 			parent_process(pid);
 		}
 	}
+
 	return (0);
 }
-
 /**
- * child process - Function that start the shell.
- * @argc: is an integer
- * @argv: is a char
- * @environ: global variable
+ * child_process - Function that start the shell.
+ * @args: is an integer
+ *
  * Return: 0
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ec355832f6ec7008ae1290ecb9f7d04ab23d84d
 void child_process(char **args)
 {
 	struct stat st;
@@ -77,14 +82,13 @@ void child_process(char **args)
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
  * parent_process - Function that start the shell.
- * @argc: is an integer
- * @argv: is a char
- * @environ: global variable
+ * @pid: Process ID
+ *
  * Return: 0
  */
-
 void parent_process(pid_t pid)
 {
 	int status;
