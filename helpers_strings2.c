@@ -106,12 +106,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 }
 
 /**
- * ctrl_c_handler - Function that handle the signal of CTRL-C
+ * ctrl_d_handler - Function that handle the signal of CTRL-D
  * @signum: Is the number 's signal
  *
  * Return: void
  */
-void ctrl_c_handler(int signum)
+void ctrl_d_handler(int signum)
 {
 	if (signum == SIGINT)
 		print("\n($) ", STDIN_FILENO);

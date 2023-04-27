@@ -50,7 +50,7 @@ char *_strchr(char *, char);
 char *_strtok_r(char *, char *, char **);
 int _atoi(char *);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void ctrl_c_handler(int);
+void ctrl_d_handler(int);
 void remove_comment(char *);
 int parse_command(char *);
 void execute_command(char **, int);
@@ -61,5 +61,5 @@ void env(char **);
 void quit(char **);
 extern void non_interactive(void);
 extern void initializer(char **current_command, int type_command);
-int handle_ctrl_d(char *buf);
+
 #endif
