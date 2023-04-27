@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * tokenizer - tokenizes input and stores it into an array
- *@input_string: input to be parsed
- *@delim: delimiter to be used, needs to be one character string
+ *tokenizer - Function that break characters into tokens
+ *@input_string: input to analyse
+ *@delim: This is a delimiter who need to be a character string
  *
- *Return: array of tokens
+ *Return: as an array of tokens
  */
 
 char **tokenizer(char *input_string, char *delim)
@@ -32,9 +32,9 @@ char **tokenizer(char *input_string, char *delim)
 }
 
 /**
- *print - prints a string to stdout
- *@string: string to be printed
- *@stream: stream to print out to
+ *print - Function that print a string to stdout
+ *@string: Is the string to print out
+ *@stream: Is the stream to print out
  *
  *Return: void, return nothing
  */
@@ -47,8 +47,8 @@ void print(char *string, int stream)
 }
 
 /**
- *remove_newline - removes new line from a string
- *@str: string to be used
+ *remove_newline - Function that remove a new line from a string
+ *@str: Is the string to use
  *
  *
  *Return: void
@@ -68,9 +68,9 @@ void remove_newline(char *str)
 }
 
 /**
- *_strcpy - copies a string to another buffer
- *@source: source to copy from
- *@dest: destination to copy to
+ *_strcpy - Function that copy a string to another buff
+ *@source: Is the source to copy from
+ *@dest: Is the destination to copy to
  *
  * Return: void
  */
@@ -85,11 +85,11 @@ void _strcpy(char *source, char *dest)
 }
 
 /**
- *  *_strlen - counts string length
- *   *@string: string to be counted
- *    *
- *     * Return: length of the string
- *      */
+ *_strlen - Function that count the length of string
+ *@string: Is the string to be counted
+ *
+ * Return: length of the string
+ */
 
 int _strlen(char *string)
 {

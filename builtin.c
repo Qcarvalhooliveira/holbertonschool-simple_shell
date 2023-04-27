@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *env - prints the current_environnement
+ *env - Function that print current environnement
  *@tokenized_command: command entered
  *
  *Return: void
@@ -19,7 +19,7 @@ void env(char **tokenized_command __attribute__((unused)))
 }
 
 /**
- * quit - exits the shell
+ * quit - Function that exit the shell program
  * @tokenized_command: command entered
  *
  * Return: void

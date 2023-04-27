@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- *_strcmp - compare two strings
- *@first: first string to be compared
- *@second: second string to be compared
+ *_strcmp - Function that compare two strings 
+ *@first: Is the first string to be compared
+ *@second:Is the second string to be compared
  *
- * Return: difference of the two strings
+ * Return: difference between two strings
  */
 
 int _strcmp(char *first, char *second)
@@ -22,8 +22,8 @@ int _strcmp(char *first, char *second)
 }
 
 /**
- *_strcat - concatenates two strings
- *@destination: string to be concatenated to
+ *_strcat - Function than concatenate two strings
+ *@destination: Is string to be concatenated to
  *@source:  string to concatenate
  *
  * Return: address of the new string
