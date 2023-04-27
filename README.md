@@ -16,47 +16,51 @@ Shell scripts allow us to program commands in chains and have the system execute
 * ```chdir``` (man 2 chdir)
 * ```close``` (man 2 close)
 * ```closedir``` (man 3 closedir)
-* ```execve``` (man 2 execve)
-* ```exit``` (man 3 exit) :dart:
+* ```execve``` (man 2 execve) :pushpin:
+* ```exit``` (man 3 exit) :pushpin:
 * ```_exit``` (man 2 _exit)
-* ```fflush``` (man 3 fflush) :dart:
+* ```fflush``` (man 3 fflush)
 * ```fork``` (man 2 fork)
-* ```free``` (man 3 free) :dart:
+* ```free``` (man 3 free) :pushpin:
 * ```getcwd``` (man 3 getcwd)
-* ```getline``` (man 3 getline) :dart:
+* ```getline``` (man 3 getline) :pushpin:
 * ```getpid``` (man 2 getpid)
-* ```isatty``` (man 3 isatty)
+* ```isatty``` (man 3 isatty) :pushpin:
 * ```kill``` (man 2 kill)
-* ```malloc``` (man 3 malloc) :dart:
+* ```malloc``` (man 3 malloc) 
 * ```open``` (man 2 open)
 * ```opendir``` (man 3 opendir)
-* ```perror``` (man 3 perror) :dart:
-* ```printf``` (man 3 printf) :dart:
-* ```fprintf``` (man 3 fprintf) :dart:
+* ```perror``` (man 3 perror) :pushpin:
+* ```printf``` (man 3 printf) 
+* ```fprintf``` (man 3 fprintf) 
 * ```vfprintf``` (man 3 vfprintf)
 * ```sprintf``` (man 3 sprintf)
 * ```putchar``` (man 3 putchar)
-* ```read``` (man 2 read) :dart:
+* ```read``` (man 2 read) 
 * ```readdir``` (man 3 readdir)
-* ```signal``` (man 2 signal)
+* ```signal``` (man 2 signal) :pushpin:
 * ```stat``` (__xstat) (man 2 stat)
 * ```lstat``` (__lxstat) (man 2 lstat)
-* ```fstat``` (__fxstat) (man 2 fstat)
-* ```strtok``` (man 3 strtok) :dart:
+* ```fstat``` (__fxstat) (man 2 fstat) 
+* ```strtok``` (man 3 strtok) :pushpin:
 * ```wait``` (man 2 wait)
-* ```waitpid``` (man 2 waitpid) :dart:
+* ```waitpid``` (man 2 waitpid) :pushpin:
 * ```wait3``` (man 2 wait3)
 * ```wait4``` (man 2 wait4)
-* ```write``` (man 2 write) :dart:
+* ```write``` (man 2 write) 
 
 # **Project Files**
 
-|     Files                      |    Description                                                                      |
-|--------------------------------|-------------------------------------------------------------------------------------|
-|free_grid                       |frees the memory allocated for a 2D array of strings                                 |
-|func_exec                       |function that executes the commands                                                  |
-|get_path                        |To get command's path                                                                ||handle_ctrl_d                   |Handles ctrl + d                                                                     ||main                            |Function that start the shell                                                        ||_printenv                       |Function that prints the environment variables                                       ||read_func                       |reads input from stdin                                                               ||shell                           |Header                                                                               ||_func_split                     |Function to make tokens (what is reading)                                            ||split_env                       |Permits to tokenize path                                                             ||_strcat                         |Function that concatenante two strings                                               ||_strcmp                         |The function compares two strings                                                    ||_strlen                         |Function to find the size of the string                                              ||trim                            |Function that remove whitespaces from start and end of strings                       |
-|_strncmp                        |Function to compare the number of strings's characters                               |
+|     Files                      |    Functions                                                     |
+|--------------------------------|------------------------------------------------------------------|
+|builtin.c                       |env and quit                                                      |
+|execute_functions.c             |parse command/execute command/*check_path/*get_func/*_getenv      |
+|handler_non_inter_func.c        |non_interactive                                                   |
+|helpers_strings.c               |**tokenizer/print/remove_newline/_strcpy/_strlen                  |
+|helpers_strings1.c              |_strcmp/*_strcat/_strspn/_strcspn/*_strchr                        |
+|helpers_strings2.c              |*_strtok_r/_atoi/*_realloc/ctrl_d_handler/remove_comment          |
+|init_function.c                 |initializer                                                       |
+|main.c                          |main                                                              |
 
 
 # **USAGE** :memo:
@@ -88,6 +92,15 @@ exit
 ```
 > 2: Press on Ctrl + D
 
+# **EXEMPLE**
+
+```
+ ($) ls
+AUTHORS    builtin.c            handler_non_inter_func.c  helpers_strings2.c  main.c
+README.md  execute_functions.c  helpers_strings.c         hsh                 man_1_simple_shell
+Shell.gif  hack                 helpers_strings1.c        init_function.c     shell.h
+ ($)
+```
 
 # **Testing** :warning:
 
@@ -143,6 +156,10 @@ $ echo "qwerty" | ./././hsh
 $
 ```
 
+# **BUGS** :no_entry:
+
+Incorrect output - case: Execute ls -l
+
 # **Tasks** :books:
 
 ### **0. README, man, AUTHORS**
@@ -190,3 +207,7 @@ Simple shell 0.4 +
 
 * **Queise Carvalho de Oliveira** - [Queise Oliveira](https://github.com/Qcarvalhooliveira)
 * **Sabrina Papeau** - [Sabrina Papeau](https://github.com/SabyParis)
+
+## **LICENSE**
+
+**Simple _Shell** is an open-source project, so the download and the usage has no restriction.
