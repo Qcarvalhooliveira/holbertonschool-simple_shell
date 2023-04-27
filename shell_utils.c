@@ -1,43 +1,29 @@
 #include "shell.h"
 
-/**
- * Auth: Emma Udeji
- * 		 Pericles Adjovi
- *
- * Description:
- * the extended functions for main.c
- */
-
-
-/** parse_command - determines the type of the command
- * @command: command to be parsed
+/** parse_cmd - Function that determines the type of the command
+ * @cmd: command to be parsed
  *
  * Return: constant representing the type of the command
- * Description -
- * 		 EXTERNAL_COMMAND (1) represents commands like /bin/ls
- *		 INTERNAL_COMMAND (2) represents commands like exit, env
- *		 PATH_COMMAND (3) represents commands found in the PATH like ls
- *		 INVALID_COMMAND (-1) represents invalid commands
  */
 
-int parse_command(char *command)
+int parse_cmd(char *cmd)
 {
 	int i;
-	char *internal_command[] = {"env", "exit", NULL};
+	char *internal_cmd[] = {"env", "exit", NULL};
 	char *path = NULL;
 
-	for (i = 0; command[i] != '\0'; i++)
+	for (i = 0; cmd[i] != '\0'; i++)
 	{
-		if (command[i] == '/')
+		if (cmd[i] == '/')
 			return (EXTERNAL_COMMAND);
 	}
-	for (i = 0; internal_command[i] != NULL; i++)
+	for (i = 0; internal_cmd[i] != NULL; i++)
 	{
-		if (_strcmp(command, internal_command[i]) == 0)
+		if (_strcmp(cmd, internal_cmd[i]) == 0)
 			return (INTERNAL_COMMAND);
 	}
-	/* @check_path - checks if a command is found in the PATH */
-	path = check_path(command);
+
+	path = check_path(cmd);
 	if (path != NULL)
 	{
 		free(path);
@@ -48,54 +34,54 @@ int parse_command(char *command)
 }
 
 /**
- * execute_command - executes a command based on it's type
- * @tokenized_command: tokenized form of the command (ls -l == {ls, -l, NULL})
- * @command_type: type of the command
+ * execute_cmd - Function that executes a command based on it's type
+ * @tokenized_cmd: tokenized form of the command (ls -l == {ls, -l, NULL})
+ * @cmd_type: type of the command
  *
  * Return: void
  */
-void execute_command(char **tokenized_command, int command_type)
+void execute_cmd(char **tokenized_cmd, int cmd_type)
 {
-	void (*func)(char **command);
+	void (*func)(char **cmd);
 
-	if (command_type == EXTERNAL_COMMAND)
+	if (cmd_type == EXTERNAL_COMMAND)
 	{
-		if (execve(tokenized_command[0], tokenized_command, NULL) == -1)
+		if (execve(tokenized_cmd[0], tokenized_cmd, NULL) == -1)
 		{
 			perror(_getenv("PWD"));
 			exit(2);
 		}
 	}
-	if (command_type == PATH_COMMAND)
+	if (cmd_type == PATH_COMMAND)
 	{
-		if (execve(check_path(tokenized_command[0]), tokenized_command, NULL) == -1)
+		if (execve(check_path(tokenized_cmd[0]), tokenized_cmd, NULL) == -1)
 		{
 			perror(_getenv("PWD"));
 			exit(2);
 		}
 	}
-	if (command_type == INTERNAL_COMMAND)
+	if (cmd_type == INTERNAL_COMMAND)
 	{
-		func = get_func(tokenized_command[0]);
-		func(tokenized_command);
+		func = get_func(tokenized_cmd[0]);
+		func(tokenized_cmd);
 	}
-	if (command_type == INVALID_COMMAND)
+	if (cmd_type == INVALID_COMMAND)
 	{
 		print(shell_name, STDERR_FILENO);
 		print(": 1: ", STDERR_FILENO);
-		print(tokenized_command[0], STDERR_FILENO);
+		print(tokenized_cmd[0], STDERR_FILENO);
 		print(": not found\n", STDERR_FILENO);
 		status = 127;
 	}
 }
 
 /**
- * check_path - checks if a command is found in the PATH
+ * check_path - Function that checks if a command is found in the PATH
  * @command: command to be used
  *
  * Return: path where the command is found in, NULL if not found
  */
-char *check_path(char *command)
+char *check_path(char *cmd)
 {
 	char **path_array = NULL;
 	char *temp, *temp2, *path_cpy;
@@ -110,7 +96,7 @@ char *check_path(char *command)
 	for (i = 0; path_array[i] != NULL; i++)
 	{
 		temp2 = _strcat(path_array[i], "/");
-		temp = _strcat(temp2, command);
+		temp = _strcat(temp2, cmd);
 		if (access(temp, F_OK) == 0)
 		{
 			free(temp2);
@@ -127,12 +113,12 @@ char *check_path(char *command)
 }
 
 /**
- * get_func - retrieves a function based on the command given and a mapping
+ * get_func - Function that retrieves a function based on the command given and a mapping
  * @command: string to check against the mapping
  *
  * Return: pointer to the proper function, or null on fail
  */
-void (*get_func(char *command))(char **)
+void (*get_func(char *cmd))(char **)
 {
 	int i;
 	function_map mapping[] = {
@@ -141,27 +127,27 @@ void (*get_func(char *command))(char **)
 
 	for (i = 0; i < 2; i++)
 	{
-		if (_strcmp(command, mapping[i].command_name) == 0)
+		if (_strcmp(cmd, mapping[i].command_name) == 0)
 			return (mapping[i].func);
 	}
 	return (NULL);
 }
 
 /**
- * _getenv - gets the value of an environment variable
+ * _getenv - Function that gets the value of an environment variable
  * @name: name of the environment variable
  *
  * Return: the value of the variable as a string
  */
 char *_getenv(char *name)
 {
-	char **my_environ;
+	char **my_env;
 	char *pair_ptr;
 	char *name_cpy;
 
-	for (my_environ = environ; *my_environ != NULL; my_environ++)
+	for (my_env = environ; *my_env != NULL; my_env++)
 	{
-		for (pair_ptr = *my_environ, name_cpy = name;
+		for (pair_ptr = *my_env, name_cpy = name;
 		     *pair_ptr == *name_cpy; pair_ptr++, name_cpy++)
 		{
 			if (*pair_ptr == '=')
