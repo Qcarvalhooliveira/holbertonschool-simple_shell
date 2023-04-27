@@ -61,4 +61,5 @@ void env(char **);
 void quit(char **);
 extern void non_interactive(void);
 extern void initializer(char **current_command, int type_command);
+int handle_ctrl_d(char *buf);
 #endif
