@@ -2,12 +2,12 @@
 
 
 /**
- *_strtok_r - tokenizes a string
- *@string: string to be tokenized
- *@delim: delimiter to be used to tokenize the string
+ *_strtok_r - Function that tokenize a string
+ *@string: Is the string to be tokenized
+ *@delim: Is the delimiter to be used to tokenize the string
  *@save_ptr: pointer to be used to keep track of the next token
  *
- *Return: The next available token
+ *Return: The next token able to be use
  */
 char *_strtok_r(char *string, char *delim, char **save_ptr)
 {
@@ -42,10 +42,10 @@ char *_strtok_r(char *string, char *delim, char **save_ptr)
 }
 
 /**
- * _atoi - changes a string to an integer
- * @s: the string to be changed
+ * _atoi - Function that change a string to an integer
+ * @s: Is the string to be changed
  *
- * Return: the converted int
+ * Return: to the integer that is converted
  */
 int _atoi(char *s)
 {
@@ -65,12 +65,12 @@ int _atoi(char *s)
 }
 
 /**
- * _realloc - reallocates a memory block
- * @ptr: pointer to the memory previously allocated with a call to malloc
- * @old_size: size of ptr
- * @new_size: size of the new memory to be allocated
+ * _realloc - Function that reallocate a block of memory
+ * @ptr: Is a pointer to the memory before allocated with a call to malloc
+ * @old_size: Is the size of ptr
+ * @new_size: Is the new memory'size to be allocated
  *
- * Return: pointer to the address of the new memory block
+ * Return: pointer new memory block's address
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -106,8 +106,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 }
 
 /**
- * ctrl_c_handler - handles the signal raised by CTRL-C
- * @signum: signal number
+ * ctrl_c_handler - Function that handle the signal of CTRL-C
+ * @signum: Is the number 's signal
  *
  * Return: void
  */
@@ -118,8 +118,8 @@ void ctrl_c_handler(int signum)
 }
 
 /**
- * remove_comment - removes/ignores everything after a '#' char
- * @input: input to be used
+ * remove_comment - Function that remove all things after a '#' char
+ * @input: Is the input to be used
  *
  * Return: void
  */
