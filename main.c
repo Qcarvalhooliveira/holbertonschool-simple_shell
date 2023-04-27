@@ -1,10 +1,19 @@
 #include "shell.h"
 
-/**	
- * main - Function that start the shell program
+
+	char **commands = NULL;
+	char *line = NULL;
+	char *shell_name = NULL;
+	int status = 0;
+
+/**
+ * main - the main shell code
  * @argc: number of arguments passed
  * @argv: program arguments to be parsed
  *
+ * applies the functions in utils and helpers
+ * implements EOF
+ * Prints error on Failure
  * Return: 0 on success
  */
 
@@ -14,17 +23,13 @@ int main(int argc __attribute__((unused)), char **argv)
 	char **current_command = NULL;
 	int i, type_command = 0;
 	size_t n = 0;
-	char **commands = NULL;
-	char *line = NULL;
-	char *shell_name = NULL;
-	int status = 0;
 
-	signal(SIGINT, handle_ctrl_d);
+	signal(SIGINT, ctrl_c_handler);
 	shell_name = argv[0];
 	while (1)
 	{
 		non_interactive();
-		print("$ ", STDOUT_FILENO);
+		print(" ($) ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
 			free(line);
@@ -44,6 +49,7 @@ int main(int argc __attribute__((unused)), char **argv)
 			}
 			type_command = parse_command(current_command[0]);
 
+			/* initializer -   */
 			initializer(current_command, type_command);
 			free(current_command);
 		}
