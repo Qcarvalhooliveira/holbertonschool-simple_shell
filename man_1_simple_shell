@@ -1,7 +1,7 @@
 April 28th, 2023  Simple shell  team project
 
 NAME
-Hsh –simple shell program: command line interpreter
+Hsh –simple shell UNIX program: command line interpreter in C
 
 SYNOPSIS
 hsh –[option] [command]
@@ -21,25 +21,27 @@ The shell  is compiled on Ubuntu 20.04 LTS with GNU compiler collection :
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 OPTIONS
--v, --version
-Display version information and exit.
+After typing the main command you can add a space and a '-' symbol.
 
--n, --no-prompt
-Do not display the shell prompt when running in interactive mode.
 
 EXAMPLES
-To execute a single command, run
-./hsh -c "ls -l"
+To tell the "hsh" script to run a command with an option with argument:
+./hsh [command] [options]
 
-To execute a shell script, run:
-./hsh script.sh
 
-To run hsh in non-interactive mode, pipe input from a file:
-cat commands.txt | ./hsh
+To display a detailed listing of all files in the current directory, including file permissions, owners and size:
+$ ls -l
 
 
 BUGS
-None kwown
+Checker crashed in task 4. Simple shell 0.3, display errors :
+
+Incorrect output when try to execute:
+ls -l
+
+Incorrect output when try to execute:
+/bin/ls -l
+
 
 AUTHORS
 Queise Carvalho De Oliveira
