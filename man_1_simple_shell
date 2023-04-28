@@ -23,15 +23,12 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 OPTIONS
 After typing the main command you can add a space and a '-' symbol.
 
-
 EXAMPLES
 To tell the "hsh" script to run a command with an option with argument:
 ./hsh [command] [options]
 
-
 To display a detailed listing of all files in the current directory, including file permissions, owners and size:
 $ ls -l
-
 
 BUGS
 Checker crashed in task 4. Simple shell 0.3, display errors :
@@ -41,7 +38,6 @@ ls -l
 
 Incorrect output when try to execute:
 /bin/ls -l
-
 
 AUTHORS
 Queise Carvalho De Oliveira
