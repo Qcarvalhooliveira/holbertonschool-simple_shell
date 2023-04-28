@@ -36,9 +36,6 @@ Checker crashed in task 4. Simple shell 0.3, display errors :
 Incorrect output when try to execute:
 ls -l
 
-Incorrect output when try to execute:
-/bin/ls -l
-
 AUTHORS
 Queise Carvalho De Oliveira
 Sabrina Papeau
