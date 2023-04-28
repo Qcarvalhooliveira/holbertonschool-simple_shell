@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *_strcmp - Function that compare two strings 
+ *_strcmp - Function that compare two strings
  *@first: Is the first string to be compared
  *@second:Is the second string to be compared
  *
@@ -66,7 +66,7 @@ int _strspn(char *str1, char *str2)
 }
 
 /**
- *_strcspn - function that compute a part of str1 which consists of characters not in str2
+ *_strcspn - Computes a part of str1 which consists of characters not in str2
  *@str1: Is the string to be searched
  *@str2: Is the string to be used
  *
